@@ -5,8 +5,121 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankingApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Bank" 
+        Width="900" Height="600" 
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="ThreeDBorderWindow" 
+        
+        Background="#101010">
 
+    <Grid>
+        
+        <!-- Background gradient -->
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0 0" EndPoint="1 1">
+                <GradientStop Color="#0F0720" Offset="0"/>
+                <GradientStop Color="#0A0A0A" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <!-- Decorative blurred circles -->
+        <Ellipse Width="350" Height="350"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 Margin="-80,-80,0,0"
+                 Fill="#30FFFFFF">
+           
+        </Ellipse>
+
+        <Ellipse Width="270" Height="270"
+                 HorizontalAlignment="Right"
+                 VerticalAlignment="Bottom"
+                 Margin="0,0,-70,-70"
+                 Fill="#30FF66CC">
+           
+        </Ellipse>
+
+        <!-- Glass panel -->
+        <Border CornerRadius="25"
+                Padding="30"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Width="550" Height="330"
+                Background="#20FFFFFF">
+           
+            
+            <Grid Margin="10">
+                <StackPanel>
+                    <TextBlock Text="Probably Safe Bank"
+                               FontSize="32"
+                               Foreground="White"
+                               FontWeight="Bold"
+                               Opacity="0.9"
+                               Margin="0 0 0 15"/>
+
+                    <TextBlock Text="The best place for your money ever"
+                               FontSize="18"
+                               Foreground="#E0E0E0"
+                               Margin="0 0 0 4"/>
+
+                    
+                    <TextBox Background="Transparent" Foreground="Azure" Margin="5" Width="100" HorizontalAlignment="Left" FontStyle="Italic" Text = "Login" 
+                             GotFocus="TextBox_GotFocus" LostFocus="Login_LostFocus">
+                        
+                    </TextBox>
+                    
+                    <TextBox Background="Transparent" Foreground="Azure" Width="100" Margin="5" HorizontalAlignment="Left" Text = "Password"
+                             GotFocus="TextBox_GotFocus" LostFocus="Password_LostFocus">
+                    </TextBox>
+                    
+                    <Border Height="1"
+                            Margin="0 20 0 20"
+                            Background="#40FFFFFF"/>
+                    
+                   
+
+                    <StackPanel Orientation="Horizontal" Margin="0 0 0 12">
+                        
+                        <Button Content="Sign In"
+                                Width="130"
+                                Height="42"
+                                
+                                FontWeight="Bold"
+                                Foreground="#101010"
+                                Background="#F39EFF"
+                                BorderBrush="#FFCCFF33" />
+                        
+                        <Button Content="Sign Up"
+                                Width="130"
+                                Height="42"
+                                Margin="12 0 0 0"
+                                FontWeight="Bold"
+                                Foreground="White"
+                                Background="#40FFFFFF"
+                                BorderBrush="#50FFFFFF"
+                        >
+                            
+                        </Button>
+
+                        
+                    </StackPanel>
+
+                    <Button Cursor="Arrow"  Click="ForgotPassword_Click">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button" >
+                                <ContentPresenter />
+                            </ControlTemplate>
+                        </Button.Template>
+                        <TextBlock Text="Forgot your password?"
+                                   Foreground="#298AFF"
+                                   FontSize="12"/>
+                    </Button>
+
+                    
+                    
+                </StackPanel>
+            </Grid>
+
+        </Border>
     </Grid>
 </Window>

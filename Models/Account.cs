@@ -7,20 +7,18 @@ public class Account
     public Account()
     {
         Balance = 0;
-        InterestRate = 1;
+        
     }
     
     
-    public Account(decimal balance, decimal interestRate)
+    public Account(decimal balance)
     {
         Balance = balance;
-        InterestRate = interestRate;
     }
-    
-    
-    
+
+
+    protected bool IsOpen { get; set; } = true;
     protected decimal Balance{get;set;}
-    protected decimal InterestRate{get;set;}
     protected decimal Time{get;set;}
     
     protected List<string> Transactions{get;set;} = new List<string>();
