@@ -12,15 +12,9 @@
         
         Background="#101010">
 
-    <Grid>
+    <Grid Background="{StaticResource LinearGradientBrush}">
         
-        <!-- Background gradient -->
-        <Grid.Background>
-            <LinearGradientBrush StartPoint="0 0" EndPoint="1 1">
-                <GradientStop Color="#0F0720" Offset="0"/>
-                <GradientStop Color="#0A0A0A" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+        
 
         <!-- Decorative blurred circles -->
         <Ellipse Width="350" Height="350"

@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    
+    <!-- Background gradient -->
+    
+        <LinearGradientBrush x:Key= "LinearGradientBrush" StartPoint="0 0" EndPoint="1 1">
+            <GradientStop Color="#1E0520" Offset="0"/>
+            <GradientStop Color="#0F0720" Offset="0.5"/>
+            <GradientStop Color="#0A0A0A" Offset="1"/>
+        </LinearGradientBrush>
+    
+    
+    
+    
+    
+</ResourceDictionary>
