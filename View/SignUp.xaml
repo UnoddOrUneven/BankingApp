@@ -28,17 +28,23 @@
                     
 
                     
-                    <TextBox Background="Transparent" Foreground="Azure" Margin="5" Width="250" Height="20" HorizontalAlignment="Left" FontStyle="Italic" Text = "Name and second name" 
-                             >
+                    <TextBox Background="Transparent" Foreground="Azure" Margin="5" Width="250" Height="20" HorizontalAlignment="Left" FontStyle="Italic" Text = "Name" 
+                             GotFocus="TextBox_GotFocus"
+                             LostFocus="Name_LostFocus">
                         
                     </TextBox>
                     <Rectangle Height="20"></Rectangle>
                     
-                    <TextBox Background="Transparent" Foreground="Azure" Width="250" Height="20" Margin="5" HorizontalAlignment="Left" Text = "Password">
+                    <TextBox Background="Transparent" Foreground="Azure" Width="250" Height="20" Margin="5" HorizontalAlignment="Left" Text = "Password" 
+                             GotFocus="TextBox_GotFocus"
+                             LostFocus="Password_LostFocus">
+                             
                              
                     </TextBox>  
                     
-                    <TextBox Background="Transparent" Foreground="Azure" Width="250" Height="20" Margin="5" HorizontalAlignment="Left" Text = "Repeat Password">
+                    <TextBox Background="Transparent" Foreground="Azure" Width="250" Height="20" Margin="5" HorizontalAlignment="Left" Text = "Repeat Password" 
+                             GotFocus="TextBox_GotFocus"
+                             LostFocus="Repeat_Password_LostFocus">
                              
                     </TextBox>
                     
