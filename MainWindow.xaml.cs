@@ -34,6 +34,14 @@ public partial class MainWindow : Window
     {
         this.Close();
     }
+
+    private void SignUpButton_Click(object sender, RoutedEventArgs e)
+    {
+        SignUp signUpWindow = new SignUp();
+        
+        signUpWindow.Show();
+        this.Close();
+    }
     
     private void TextBox_GotFocus(object sender, RoutedEventArgs e)
     {

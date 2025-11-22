@@ -40,7 +40,7 @@
                             </Setter>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="border" Property="Background" Value="#C63FFF"/>
+                            <Setter TargetName="border" Property="Background" Value="GreenYellow"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
