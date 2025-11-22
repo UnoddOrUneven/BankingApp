@@ -5,12 +5,47 @@
     <!-- Background gradient -->
     
         <LinearGradientBrush x:Key= "LinearGradientBrush" StartPoint="0 0" EndPoint="1 1">
-            <GradientStop Color="#1E0520" Offset="0"/>
-            <GradientStop Color="#0F0720" Offset="0.5"/>
-            <GradientStop Color="#0A0A0A" Offset="1"/>
+            <GradientStop Color="GreenYellow" Offset="0"/>
+            <GradientStop Color="Green" Offset="0.3"/>
+            <GradientStop Color="DarkGreen" Offset="1"/>
+            <!-- <GradientStop Color="DarkGreen" Offset="0.6"/> -->
         </LinearGradientBrush>
-    
-    
+        
+    <!-- Buttons glow -->
+    <Style x:Key="GlowButton" TargetType="Button">
+        <Setter Property="Background" Value="Green"/>
+        <Setter Property="Foreground" Value="#101010"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Width" Value="130"/>
+        <Setter Property="Height" Value="42"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="6">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="YellowGreen"/>
+                            <Setter TargetName="border" Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="GreenYellow" BlurRadius="15" ShadowDepth="0"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#C63FFF"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     
     
     

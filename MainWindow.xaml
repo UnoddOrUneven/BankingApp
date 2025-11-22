@@ -16,22 +16,7 @@
         
         
 
-        <!-- Decorative blurred circles -->
-        <Ellipse Width="350" Height="350"
-                 HorizontalAlignment="Left"
-                 VerticalAlignment="Top"
-                 Margin="-80,-80,0,0"
-                 Fill="#30FFFFFF">
-           
-        </Ellipse>
-
-        <Ellipse Width="270" Height="270"
-                 HorizontalAlignment="Right"
-                 VerticalAlignment="Bottom"
-                 Margin="0,0,-70,-70"
-                 Fill="#30FF66CC">
-           
-        </Ellipse>
+       
 
         <!-- Glass panel -->
         <Border CornerRadius="25"
@@ -74,16 +59,16 @@
 
                     <StackPanel Orientation="Horizontal" Margin="0 0 0 12">
                         
-                        <Button Content="Sign In"
+                        <Button Content="Sign In" Style="{StaticResource GlowButton}"
                                 Width="130"
                                 Height="42"
                                 
                                 FontWeight="Bold"
                                 Foreground="#101010"
-                                Background="#F39EFF"
-                                BorderBrush="#FFCCFF33" />
+                                Background="LawnGreen"
+                                 />
                         
-                        <Button Content="Sign Up"
+                        <Button Content="Sign Up" Style="{StaticResource GlowButton}"
                                 Width="130"
                                 Height="42"
                                 Margin="12 0 0 0"
@@ -98,15 +83,16 @@
                         
                     </StackPanel>
 
-                    <Button Cursor="Arrow"  Click="ForgotPassword_Click">
+                    <Button Cursor="Arrow"  Click="ForgotPassword_Click" >
                         <Button.Template>
                             <ControlTemplate TargetType="Button" >
                                 <ContentPresenter />
                             </ControlTemplate>
                         </Button.Template>
                         <TextBlock Text="Forgot your password?"
-                                   Foreground="#298AFF"
-                                   FontSize="12"/>
+                                   Foreground="DodgerBlue"
+                                   FontSize="10"/>
+                                
                     </Button>
 
                     
