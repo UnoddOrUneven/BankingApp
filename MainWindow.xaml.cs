@@ -20,55 +20,12 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        MainFrame.Navigate(new SignIn());
         
     }
     
     
-    private void ForgotPassword_Click(object sender, RoutedEventArgs e)
-    {
-        ResetPassword resetWindow = new ResetPassword();
-        resetWindow.ShowDialog();  // modal
-    }
-
-    private void CloseButton_Click(object sender, RoutedEventArgs e)
-    {
-        this.Close();
-    }
-
-    private void SignUpButton_Click(object sender, RoutedEventArgs e)
-    {
-        SignUp signUpWindow = new SignUp();
-        
-        signUpWindow.Show();
-        this.Close();
-    }
     
-    private void TextBox_GotFocus(object sender, RoutedEventArgs e)
-    {
-        var tb = sender as TextBox;
-        if (tb.Text == "Password" || tb.Text == "Login")
-        {
-            tb.Text = "";
-        }
-    }
-    
-    private void Password_LostFocus(object sender, RoutedEventArgs e)
-    {
-        var tb = sender as TextBox;
-        if (string.IsNullOrEmpty(tb.Text))
-        {
-            tb.Text = "Password";
-        }
-    }
-    
-    private void Login_LostFocus(object sender, RoutedEventArgs e)
-    {
-        var tb = sender as TextBox;
-        if (string.IsNullOrEmpty(tb.Text))
-        {
-            tb.Text = "Login";
-        }
-    }
    
     
 

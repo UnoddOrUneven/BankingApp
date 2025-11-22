@@ -10,98 +10,17 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="ThreeDBorderWindow" 
         
-        Background="#101010">
-
-    <Grid Background="{StaticResource LinearGradientBrush}">
+        Background="{StaticResource LinearGradientBrush}" >
         
+        <Grid>
+        <Frame x:Name="MainFrame" 
+               NavigationUIVisibility="Hidden" 
+               HorizontalAlignment="Stretch" 
+               VerticalAlignment="Stretch"/>
+        </Grid>
         
 
        
 
-        <!-- Glass panel -->
-        <Border CornerRadius="25"
-                Padding="30"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Width="550" Height="340"
-                Background="#20FFFFFF">
-           
-            
-            <Grid Margin="10">
-                <StackPanel>
-                    <TextBlock Text="Probably Safe Bank"
-                               FontSize="32"
-                               Foreground="White"
-                               FontWeight="Bold"
-                               Opacity="0.9"
-                               Margin="0 0 0 15"/>
-
-                    <TextBlock Text="The best place for your money ever"
-                               FontSize="18"
-                               FontStyle="Oblique"
-                               Foreground="#E0E0E0"
-                               Margin="0 0 0 4"/>
-
-                    
-                    <TextBox Background="Transparent" Foreground="Azure" Margin="5" Width="250" Height="20" HorizontalAlignment="Left" FontStyle="Italic" Text = "Login" 
-                             GotFocus="TextBox_GotFocus" LostFocus="Login_LostFocus">
-                        
-                    </TextBox>
-                    
-                    <TextBox Background="Transparent" Foreground="Azure" Width="250" Height="20" Margin="5" HorizontalAlignment="Left" Text = "Password"
-                             GotFocus="TextBox_GotFocus" LostFocus="Password_LostFocus">
-                    </TextBox>
-                    
-                    <Border Height="1"
-                            Margin="0 20 0 20"
-                            Background="#40FFFFFF"/>
-                    
-                   
-
-                    <StackPanel Orientation="Horizontal" Margin="0 0 0 12">
-                        
-                        <Button Content="Sign In" Style="{StaticResource GlowButton}"
-                                Width="130"
-                                Height="42"
-                                
-                                FontWeight="Bold"
-                                Foreground="#101010"
-                                Background="LawnGreen"
-                                 />
-                        
-                        <Button Content="Sign Up" Style="{StaticResource GlowButton}"
-                                Click="SignUpButton_Click"
-                                Width="130"
-                                Height="42"
-                                Margin="12 0 0 0"
-                                FontWeight="Bold"
-                                Foreground="White"
-                                Background="#40FFFFFF"
-                                BorderBrush="#50FFFFFF"
-                        >
-                            
-                        </Button>
-
-                        
-                    </StackPanel>
-
-                    <Button Cursor="Arrow"  Click="ForgotPassword_Click" >
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button" >
-                                <ContentPresenter />
-                            </ControlTemplate>
-                        </Button.Template>
-                        <TextBlock Text="Forgot your password?"
-                                   Foreground="DodgerBlue"
-                                   FontSize="10"/>
-                                
-                    </Button>
-
-                    
-                    
-                </StackPanel>
-            </Grid>
-
-        </Border>
-    </Grid>
+        
 </Window>
