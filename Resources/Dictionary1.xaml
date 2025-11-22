@@ -5,9 +5,10 @@
     <!-- Background gradient -->
     
         <LinearGradientBrush x:Key= "LinearGradientBrush" StartPoint="0 0" EndPoint="1 1">
-            <GradientStop Color="GreenYellow" Offset="0"/>
+            <GradientStop Color="#64FF2E" Offset="0"/>
             <GradientStop Color="Green" Offset="0.3"/>
-            <GradientStop Color="DarkGreen" Offset="1"/>
+            <GradientStop Color="DarkGreen" Offset="0.7"/>
+            <GradientStop Color="Black" Offset="1"/>
             <!-- <GradientStop Color="DarkGreen" Offset="0.6"/> -->
         </LinearGradientBrush>
         
