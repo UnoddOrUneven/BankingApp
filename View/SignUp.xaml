@@ -5,14 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:BankingApp.View"
       mc:Ignorable="d"
-      Title="SignUp" Height="450" Width="800">
-<Grid >
+      Title="SignUp" >
+<Grid  Background= "{StaticResource LinearGradientBrush}">
         
         <Border CornerRadius="25"
                 Padding="30"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Width="550" Height="340"
                 Background="#20FFFFFF">
             
             

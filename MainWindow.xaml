@@ -10,7 +10,7 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="ThreeDBorderWindow" 
         
-        Background="{StaticResource LinearGradientBrush}" >
+         >
         
         <Grid>
         <Frame x:Name="MainFrame" 
