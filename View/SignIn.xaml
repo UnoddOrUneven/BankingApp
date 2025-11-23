@@ -67,10 +67,7 @@
                                 FontWeight="Bold"
                                 Foreground="White"
                                 Background="#40FFFFFF"
-                                BorderBrush="#50FFFFFF"
-                        >
-                            
-                        </Button>
+                                BorderBrush="#50FFFFFF" />
 
                         
                     </StackPanel>
@@ -86,9 +83,6 @@
                                    FontSize="10"/>
                                 
                     </Button>
-
-                    
-                    
                 </StackPanel>
             </Grid>
 

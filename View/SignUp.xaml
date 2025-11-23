@@ -37,8 +37,6 @@
                     <TextBox Background="Transparent" Foreground="Azure" Width="250" Height="20" Margin="5" HorizontalAlignment="Left" Text = "Password" 
                              GotFocus="TextBox_GotFocus"
                              LostFocus="Password_LostFocus">
-                             
-                             
                     </TextBox>  
                     
                     <TextBox Background="Transparent" Foreground="Azure" Width="250" Height="20" Margin="5" HorizontalAlignment="Left" Text = "Repeat Password" 
@@ -47,12 +45,15 @@
                              
                     </TextBox>
                     
-                   </StackPanel>
+                   
                 
                 
-                <Rectangle Height="20"></Rectangle>
-                <StackPanel Orientation="Horizontal" Margin="0 0 0 -200">
-                        
+                <Border Height="1"
+                        Margin="0 20 0 20"
+                        Background="#40FFFFFF"/>
+                
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 12">
+                    
                     <Button Content="Sign Up" Style="{StaticResource GlowButton}"
                             Width="130"
                             Height="42"
@@ -72,8 +73,10 @@
                             BorderBrush="#50FFFFFF">
                             
                     </Button>
+                    
 
                         
+                </StackPanel>
                 </StackPanel>
                 
             </Grid>
