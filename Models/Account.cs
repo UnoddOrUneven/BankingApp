@@ -38,7 +38,7 @@ public class Account
         }
         else
         {
-            throw new ArgumentException("Not enough balance");
+            throw new ArgumentException("Not enough Balance");
         }
     }
 

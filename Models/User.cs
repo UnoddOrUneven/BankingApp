@@ -4,19 +4,20 @@ namespace BankingApp.Models;
 
 public class User
 {
-    int Id {get; set;}
-    string Name {get; set;}
-    private int balance { get; set; } = 0;
-    private string email {get; set;} = string.Empty;
+    public int Id {get; set;}
+    public string Name {get; private set;}
+    public int Balance { get; private set; } = 0;
+    public string Email {get; private set;} = string.Empty;
+    public string Password {get; private set;} = string.Empty;
     
     private List<Account> Accounts {get; set;} = new List<Account>();
     private List<SavingsAccount> SavingAccounts {get; set;} = new List<SavingsAccount>();
-                        
+
     
-    User(int id, string name)
+    public User(string name, string password)
     {
-        Id = id;
         Name = name;
+        Password = password;
     }
 
 

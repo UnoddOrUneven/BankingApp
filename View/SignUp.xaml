@@ -5,16 +5,16 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:BankingApp.View"
       mc:Ignorable="d"
-      Title="SignUp" >
-<Grid  Background= "{StaticResource LinearGradientBrush}">
-        
+      Title="SignUp">
+    <Grid Background="{StaticResource LinearGradientBrush}">
+
         <Border CornerRadius="25"
                 Padding="30"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Background="#20FFFFFF">
-            
-            
+
+
             <Grid Margin="10">
                 <StackPanel>
                     <TextBlock Text="Sign Up"
@@ -22,69 +22,74 @@
                                Foreground="White"
                                FontWeight="Bold"
                                Opacity="0.9"
-                               Margin="0 0 0 15"/>
+                               Margin="0 0 0 15" />
 
-                    
 
-                    
-                    <TextBox Background="Transparent" Foreground="Azure" Margin="5" Width="250" Height="20" HorizontalAlignment="Left" FontStyle="Italic" Text = "Name" 
+                    <TextBox x:Name="NameTextBox" Background="Transparent" Foreground="Azure" Margin="5" Width="250"
+                             Height="20"
+                             HorizontalAlignment="Left" FontStyle="Italic" Text="Name"
                              GotFocus="TextBox_GotFocus"
                              LostFocus="Name_LostFocus">
-                        
+
                     </TextBox>
                     <Rectangle Height="20"></Rectangle>
-                    
-                    <TextBox Background="Transparent" Foreground="Azure" Width="250" Height="20" Margin="5" HorizontalAlignment="Left" Text = "Password" 
+
+                    <TextBox x:Name="PasswordTextBox" Background="Transparent" Foreground="Azure" Width="250"
+                             Height="20" Margin="5"
+                             HorizontalAlignment="Left" Text="Password"
                              GotFocus="TextBox_GotFocus"
                              LostFocus="Password_LostFocus">
-                    </TextBox>  
-                    
-                    <TextBox Background="Transparent" Foreground="Azure" Width="250" Height="20" Margin="5" HorizontalAlignment="Left" Text = "Repeat Password" 
+
+                    </TextBox>
+
+                    <TextBox x:Name="RepeatPasswordTextBox" Background="Transparent" Foreground="Azure" Width="250"
+                             Height="20" Margin="5"
+                             HorizontalAlignment="Left" Text="Repeat Password"
                              GotFocus="TextBox_GotFocus"
                              LostFocus="Repeat_Password_LostFocus">
-                             
+
                     </TextBox>
                     
-                   
-                
-                
-                <Border Height="1"
-                        Margin="0 20 0 20"
-                        Background="#40FFFFFF"/>
-                
-                <StackPanel Orientation="Horizontal" Margin="0 0 0 12">
-                    
-                    <Button Content="Sign Up" Style="{StaticResource GlowButton}"
-                            Width="130"
-                            Height="42"
-                                
-                            FontWeight="Bold"
-                            Foreground="#101010"
-                            Background="LawnGreen"
-                    />
-                        
-                    <Button Content="Sign In" Style="{StaticResource GlowButton}" Click="SignInButton_Click"
-                            Width="130"
-                            Height="42"
-                            Margin="12 0 0 0"
-                            FontWeight="Bold"
-                            Foreground="White"
-                            Background="#40FFFFFF"
-                            BorderBrush="#50FFFFFF">
-                            
-                    </Button>
+                    <TextBlock x:Name="ErrorLabel"
+                               Foreground="Red"
+                               Visibility="Collapsed"
+                               Text="Passwords do not match"/>
                     
 
-                        
+                    <Border Height="1"
+                            Margin="0 20 0 20"
+                            Background="#40FFFFFF" />
+
+                    <StackPanel Orientation="Horizontal" Margin="0 0 0 12">
+
+                        <Button Content="Sign Up" Style="{StaticResource GlowButton}" Click="SignUpButton_Click"
+                                Width="130"
+                                Height="42"
+
+                                FontWeight="Bold"
+                                Foreground="#101010"
+                                Background="LawnGreen" />
+
+                        <Button Content="Sign In" Style="{StaticResource GlowButton}" Click="SignInButton_Click"
+                                Width="130"
+                                Height="42"
+                                Margin="12 0 0 0"
+                                FontWeight="Bold"
+                                Foreground="White"
+                                Background="#40FFFFFF"
+                                BorderBrush="#50FFFFFF">
+
+                        </Button>
+
+
+                    </StackPanel>
                 </StackPanel>
-                </StackPanel>
-                
+
             </Grid>
-            
-            
-            
+
+
         </Border>
-        
-        
+
+
     </Grid>
 </Page>
