@@ -99,7 +99,7 @@ public partial class SignUp : Page
             return;
         }
 
-        if (!Bank.instance.IsNameAvailable(NameTextBox.Text))
+        if (!Bank.Instance.IsNameAvailable(NameTextBox.Text))
         {
             DisplayNameTaken();
             return;
@@ -109,6 +109,6 @@ public partial class SignUp : Page
         var password = PasswordTextBox.Text;
         var user = new User(name, password);
         
-        Bank.instance.AddUser(user);
+        Bank.Instance.AddUser(user);
     }
 }
