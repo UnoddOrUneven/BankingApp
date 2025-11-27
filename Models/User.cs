@@ -10,8 +10,8 @@ public class User
     public string Email {get; private set;} = string.Empty;
     public string Password {get; private set;} = string.Empty;
     
-    private List<Account> Accounts {get; set;} = new List<Account>();
-    private List<SavingsAccount> SavingAccounts {get; set;} = new List<SavingsAccount>();
+    public List<Account> Accounts {get; set;} = new List<Account>();
+    public List<SavingsAccount> SavingAccounts {get; set;} = new List<SavingsAccount>();
 
     
     public User(string name, string password)

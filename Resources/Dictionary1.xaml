@@ -4,13 +4,19 @@
     
     <!-- Background gradient -->
     
-        <LinearGradientBrush x:Key= "LinearGradientBrush" StartPoint="0 0" EndPoint="1 1">
+        <LinearGradientBrush x:Key= "LinearGradientBrushGreenWelcome" StartPoint="0 0" EndPoint="1 1">
             <GradientStop Color="#64FF2E" Offset="0"/>
             <GradientStop Color="Green" Offset="0.3"/>
             <GradientStop Color="DarkGreen" Offset="0.7"/>
             <GradientStop Color="Black" Offset="1"/>
             <!-- <GradientStop Color="DarkGreen" Offset="0.6"/> -->
         </LinearGradientBrush>
+    
+    <RadialGradientBrush x:Key = "RadialGradientBrushInner" RadiusX="0.8" RadiusY="0.8" GradientOrigin="0.5,0.3">
+        <GradientStop Color="#175B0F" Offset="0"/>
+        <GradientStop Color="#1B1D2A" Offset="1"/>
+    </RadialGradientBrush>
+    
         
     <!-- Buttons glow -->
     <Style x:Key="GlowButton" TargetType="Button">

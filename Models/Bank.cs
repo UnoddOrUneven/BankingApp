@@ -8,7 +8,6 @@ public class Bank
 
     public List<User> Users { get; private set; } = new List<User>();
     
-    public User CurrentUser { get; private set; } = null;
 
     private Bank()
     {
@@ -30,10 +29,7 @@ public class Bank
         return Users.All(u => u.Name != name);
     }
 
-    public void SignIn(User user)
-    {
-        CurrentUser = user;
-    }
+    
 
     public User? FindUser(string name, string password)
     {

@@ -51,8 +51,9 @@ public partial class SignIn : Page
             DisplayIncorrectPasswordMessage();
             return;
         }
-
-        Bank.Instance.SignIn(user);
+        
+        NavigationService?.Navigate(new AccountDetails(user));
+        
     }
 
     private void TextBox_GotFocus(object sender, RoutedEventArgs e)

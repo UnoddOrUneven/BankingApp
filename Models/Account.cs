@@ -18,7 +18,8 @@ public class Account
 
 
     protected bool IsOpen { get; set; } = true;
-    protected decimal Balance{get;set;}
+    public int AccountNumber { get; set; } = 0;
+    public decimal Balance{get;set;}
     protected decimal Time{get;set;}
     
     protected List<string> Transactions{get;set;} = new List<string>();

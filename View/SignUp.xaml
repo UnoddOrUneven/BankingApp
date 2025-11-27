@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:BankingApp.View"
       mc:Ignorable="d"
       Title="SignUp">
-    <Grid Background="{StaticResource LinearGradientBrush}">
+    <Grid Background="{StaticResource LinearGradientBrushGreenWelcome}">
 
         <Border CornerRadius="25"
                 Padding="30"
