@@ -15,10 +15,10 @@ public class Account
     {
         Balance = balance;
     }
-
+    
 
     protected bool IsOpen { get; set; } = true;
-    public int AccountNumber { get; set; } = 0;
+    public string Name  { get; set; } = "Account";
     public decimal Balance{get;set;}
     protected decimal Time{get;set;}
     

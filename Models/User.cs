@@ -1,4 +1,5 @@
-﻿using System.Transactions;
+﻿using System.Collections.ObjectModel;
+using System.Transactions;
 
 namespace BankingApp.Models;
 
@@ -10,7 +11,7 @@ public class User
     public string Email {get; private set;} = string.Empty;
     public string Password {get; private set;} = string.Empty;
     
-    public List<Account> Accounts {get; set;} = new List<Account>();
+    public ObservableCollection<Account> Accounts {get; set;} = new();
     public List<SavingsAccount> SavingAccounts {get; set;} = new List<SavingsAccount>();
 
     
@@ -21,7 +22,7 @@ public class User
     }
 
 
-    private void CreateAccount()
+    public void CreateAccount()
     {
         var account = new Account();
         Accounts.Add(account);
@@ -29,7 +30,7 @@ public class User
     }
     
     
-    private void addAccount(Account account)
+    public void addAccount(Account account)
     {
         Accounts.Add(account);
     }
