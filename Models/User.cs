@@ -22,11 +22,10 @@ public class User
     }
 
 
-    public void CreateAccount()
+    public void CreateAccount(string name = "Account")
     {
-        var account = new Account();
+        var account = new Account(name);
         Accounts.Add(account);
-        
     }
     
     

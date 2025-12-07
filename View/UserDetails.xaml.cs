@@ -13,20 +13,35 @@ public partial class UserDetails : Page
         InitializeComponent();
         
         _currentUser = user;
-        LoadData();
+        
         _currentUser.CreateAccount();
         _currentUser.Accounts[0].Balance = 1000;
+        LoadData();
     }
 
     private void LoadData()
     {
         UserNameText.Text = _currentUser.Name;
-        AccountsList.ItemsSource = _currentUser.Accounts;
+        AccountsList.ItemsSource = _currentUser.Accounts.Where(account => account.IsOpen);
     }
 
     private void OpenNewAccount_Click(object sender, RoutedEventArgs e)
     {
         _currentUser.CreateAccount();
+        LoadData();
+    }
+
+
+    private Account? getAccountFromButton(object sender)
+    {
+        if (sender is not Button button) return null;
+        return button.DataContext as Account;
+    }
+    
+    private void CloseAccount_Click(object sender, RoutedEventArgs e)
+    {
+        var account = getAccountFromButton(sender);
+        account.Close();
         LoadData();
     }
 
@@ -44,9 +59,9 @@ public partial class UserDetails : Page
     
     private void ViewAccount_Click(object sender, RoutedEventArgs e)
     {
-        if (sender is not Button button) return;
-        var account = button.DataContext as Account;
 
+        var account = getAccountFromButton(sender);
+        
         if (IsViewAccountOpen(account))
         {
             AccountDetails.Visibility = Visibility.Hidden;
@@ -56,7 +71,6 @@ public partial class UserDetails : Page
         
         AccountDetails.Visibility = Visibility.Visible;
         AccountDetails.DataContext = account;
-        
     }
     
     

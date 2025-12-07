@@ -4,8 +4,9 @@ namespace BankingApp.Models;
 
 public class Account
 {
-    public Account()
+    public Account(string name = "Account")
     {
+        Name = name;
         Balance = 0;
     }
 
@@ -16,7 +17,7 @@ public class Account
     }
 
 
-    protected bool IsOpen { get; set; } = true;
+    public bool IsOpen { get; set; } = true;
     public string Name { get; set; } = "Account";
     public decimal Balance { get; set; }
     protected decimal Time { get; set; }
@@ -45,4 +46,10 @@ public class Account
     {
         Transactions.Add(transaction);
     }
+
+    public void Close()
+    {
+        IsOpen = false;
+    }
+    
 }

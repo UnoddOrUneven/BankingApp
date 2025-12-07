@@ -26,7 +26,7 @@
                                Opacity="0.9"
                                Margin="0 0 0 15"/>
 
-                    <TextBlock Text="The best place for your money ever"
+                    <TextBlock Text="We store our data in your RAM"
                                FontSize="18"
                                FontStyle="Oblique"
                                Foreground="#E0E0E0"
