@@ -110,6 +110,6 @@ public partial class SignUp : Page
         var user = new User(name, password);
         
         Bank.Instance.AddUser(user);
-        NavigationService?.Navigate(new AccountDetails(user));
+        NavigationService?.Navigate(new UserDetails(user));
     }
 }

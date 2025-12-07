@@ -7,24 +7,22 @@ public class Account
     public Account()
     {
         Balance = 0;
-        
     }
-    
-    
+
+
     public Account(decimal balance)
     {
         Balance = balance;
     }
-    
+
 
     protected bool IsOpen { get; set; } = true;
-    public string Name  { get; set; } = "Account";
-    public decimal Balance{get;set;}
-    protected decimal Time{get;set;}
-    
-    protected List<string> Transactions{get;set;} = new List<string>();
-    
-   
+    public string Name { get; set; } = "Account";
+    public decimal Balance { get; set; }
+    protected decimal Time { get; set; }
+
+    protected List<string> Transactions { get; set; } = new List<string>();
+
 
     public void Deposit(int amount)
     {
@@ -47,19 +45,4 @@ public class Account
     {
         Transactions.Add(transaction);
     }
-
-    
-    
-    
-    
-
-   
-    
-    
-    
-     
-    
-    
-    
-    
 }

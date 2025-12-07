@@ -52,7 +52,7 @@ public partial class SignIn : Page
             return;
         }
         
-        NavigationService?.Navigate(new AccountDetails(user));
+        NavigationService?.Navigate(new UserDetails(user));
         
     }
 
