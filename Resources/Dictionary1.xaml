@@ -21,10 +21,9 @@
     <!-- Buttons glow -->
     <Style x:Key="GlowButton" TargetType="Button">
         <Setter Property="Background" Value="Green"/>
-        <Setter Property="Foreground" Value="#101010"/>
+        <Setter Property="Foreground" Value="WhiteSmoke"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="Width" Value="130"/>
         <Setter Property="Height" Value="42"/>
         <Setter Property="Template">
@@ -39,6 +38,7 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="border" Property="Background" Value="YellowGreen"/>
+                            
                             <Setter TargetName="border" Property="Effect">
                                 <Setter.Value>
                                     <DropShadowEffect Color="GreenYellow" BlurRadius="15" ShadowDepth="0"/>
@@ -54,6 +54,72 @@
         </Setter>
     </Style>
     
+    
+    <!-- ContextMenu glow -->
+    <Style x:Key="GlowContextMenu" TargetType="ContextMenu">
+        <Setter Property="Background" Value="ForestGreen"/>
+        <Setter Property="BorderBrush" Value="ForestGreen"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Padding" Value="6"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContextMenu">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="8">
+                        <StackPanel IsItemsHost="True"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    
+    <!-- MenuItems glow -->
+    <Style x:Key="GlowMenuItem" TargetType="MenuItem">
+        <Setter Property="Background" Value="ForestGreen"/>
+        <Setter Property="Foreground" Value="Azure"/>
+        <Setter Property="Padding" Value="8 4"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="MenuItem">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="5">
+                        <ContentPresenter
+                            Margin="4 2"
+                            Content="{TemplateBinding Header}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            RecognizesAccessKey="True"
+                            TextElement.Foreground="{TemplateBinding Foreground}"/>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsHighlighted" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="YellowGreen"/>
+                            <Setter TargetName="border" Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect
+                                        Color="GreenYellow"
+                                        BlurRadius="15"
+                                        ShadowDepth="0"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    
+
+
     
     
 </ResourceDictionary>

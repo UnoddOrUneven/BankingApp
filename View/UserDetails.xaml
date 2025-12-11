@@ -53,34 +53,53 @@
                            Text="{Binding Balance, StringFormat={}${0}}"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Top" />
+                <Grid>
+                    <Button
+                        Click="Hide_Click"
+                        Style="{StaticResource GlowButton}"
+                        Width="30"
+                        Height="20"
+                        Background="Gray"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Right"
+                        Margin="0 20 10 -110 ">
+                        Hide
+                    </Button>
+                    
+                    <Button x:Name="TransferButton"
+                            Content="Transfer"
+                            Style="{StaticResource GlowButton}"
+                            Width="100"
+                            Height="30"
+                            Margin="10 20 0 -115"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Center"
+                            Click="TransferButton_Click">
+                        <Button.ContextMenu>
+                            <ContextMenu x:Name="TransferMenu" MinWidth="150" MinHeight="40" Style="{StaticResource GlowContextMenu}">
+                                <MenuItem Header="Transfer to my account" Foreground="Azure"
+                                          Click="ToMyAccount_Click" Style="{StaticResource GlowMenuItem}" MinHeight="20"
+                                          />
+                                <MenuItem Header="Transfer to another user" Foreground="Azure" Click="ToOtherUser_Click" Style="{StaticResource GlowMenuItem}" MinHeight="20" />
+                            </ContextMenu>
+                        </Button.ContextMenu>
+                    </Button>
+                    
+                    <Button
+                        Click="CloseAccount_Click"
+                        Style="{StaticResource GlowButton}"
+                        Width="80"
+                        Height="20"
+                        Background="Red"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Left"
+                        Margin="10 20 0 -110 ">
+                        Close account
+                    </Button>
+                    
+                    
 
-                <Button
-                    Click="Hide_Click"
-                    Style="{StaticResource GlowButton}"
-                    Width="30"
-                    Height="20"
-                    Background="Gray"
-                    VerticalAlignment="Bottom"
-                    HorizontalAlignment="Right"
-                    Margin="0 90 10 0 "
-                    >
-                    Hide
-                </Button>
-                
-                <Button
-                    Click="CloseAccount_Click"
-                    Style="{StaticResource GlowButton}"
-                    Width="80"
-                    Height="20"
-                    Background="Red"
-                    VerticalAlignment="Bottom"
-                    HorizontalAlignment="Left"
-                    Margin="10 -15 0 0 "
-                >
-                    Close account
-                </Button>
-                
-                
+                </Grid>
 
             </StackPanel>
 
@@ -111,8 +130,7 @@
                         Click="OpenNewAccount_Click">
 
                 </Button>
-                
-                
+
 
                 <Border Height="1"
                         Margin="0 20 0 20"

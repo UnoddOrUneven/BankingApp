@@ -43,18 +43,29 @@ public partial class UserDetails : Page
         var account = getAccountFromButton(sender);
         account.Close();
         LoadData();
+        
+        HideAccountDetails();
     }
 
     private bool IsViewAccountOpen(Account account)
     {
         return (AccountDetails.DataContext == account);
     }
-    
-    
-    private void Hide_Click(object sender, RoutedEventArgs e)
+
+    private void HideAccountDetails()
     {
         AccountDetails.Visibility = Visibility.Hidden;
         AccountDetails.DataContext = null;
+    }
+    private void showAccountDetails(Account account)
+    {
+        AccountDetails.Visibility = Visibility.Visible;
+        AccountDetails.DataContext = account;
+    }
+    
+    private void Hide_Click(object sender, RoutedEventArgs e)
+    {
+        HideAccountDetails();
     }
     
     private void ViewAccount_Click(object sender, RoutedEventArgs e)
@@ -64,14 +75,34 @@ public partial class UserDetails : Page
         
         if (IsViewAccountOpen(account))
         {
-            AccountDetails.Visibility = Visibility.Hidden;
-            AccountDetails.DataContext = null;
+            HideAccountDetails();
             return;
         }
         
-        AccountDetails.Visibility = Visibility.Visible;
-        AccountDetails.DataContext = account;
+        showAccountDetails(account);
     }
     
+    private void TransferButton_Click(object sender, RoutedEventArgs e)
+    {
+        TransferButton.ContextMenu.IsOpen = true;
+    }
+
+    private void ToMyAccount_Click(object sender, RoutedEventArgs e)
+    {
+        HideAccountDetails();
+        ShowUsersAccount_list();
+        // Show a list of user's accounts
+    }
+
+    private void ShowUsersAccount_list()
+    {
+        
+    }
+    private void ToOtherUser_Click(object sender, RoutedEventArgs e)
+    {
+        HideAccountDetails();
+        // Show a search box for other users
+    }
+
     
 }
