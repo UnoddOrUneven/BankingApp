@@ -42,9 +42,32 @@
             Background="#47DEDEDE">
 
             <StackPanel>
+                <Button
+                    Click="Hide_Click"
+                    Style="{StaticResource GlowButton}"
+                    Width="20"
+                    Height="20"
+                    Background="Gray"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                >
+                    ✖️
+                </Button>
+                
+                <Button
+                    Click="Hide_Click"
+                    Style="{StaticResource GlowButton}"
+                    Width="20"
+                    Height="20"
+                    Background="Gray"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                >
+                    ✒️
+                </Button>
                 <TextBlock FontSize="30"
                            Foreground="Azure"
-                           Text="Account balance:"
+                           Text="{Binding Name, StringFormat={}Account: {0}}"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Top" />
 
@@ -53,25 +76,16 @@
                            Text="{Binding Balance, StringFormat={}${0}}"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Top" />
+                
                 <Grid>
-                    <Button
-                        Click="Hide_Click"
-                        Style="{StaticResource GlowButton}"
-                        Width="30"
-                        Height="20"
-                        Background="Gray"
-                        VerticalAlignment="Bottom"
-                        HorizontalAlignment="Right"
-                        Margin="0 20 10 -110 ">
-                        Hide
-                    </Button>
+                   
                     
                     <Button x:Name="TransferButton"
                             Content="Transfer"
                             Style="{StaticResource GlowButton}"
                             Width="100"
                             Height="30"
-                            Margin="10 20 0 -115"
+                            Margin="0 0 0 -80"
                             VerticalAlignment="Bottom"
                             HorizontalAlignment="Center"
                             Click="TransferButton_Click">
@@ -93,7 +107,8 @@
                         Background="Red"
                         VerticalAlignment="Bottom"
                         HorizontalAlignment="Left"
-                        Margin="10 20 0 -110 ">
+                        Margin="0 0 0 -80"
+                        >
                         Close account
                     </Button>
                     
@@ -135,7 +150,7 @@
                 <Border Height="1"
                         Margin="0 20 0 20"
                         Background="#40FFFFFF" />
-
+                
                 <ListBox x:Name="AccountsList"
                          Background="Transparent"
                          BorderThickness="0"

@@ -14,7 +14,7 @@ public partial class UserDetails : Page
         
         _currentUser = user;
         
-        _currentUser.CreateAccount();
+        _currentUser.CreateAccount("Default");
         _currentUser.Accounts[0].Balance = 1000;
         LoadData();
     }
