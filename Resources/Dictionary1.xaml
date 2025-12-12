@@ -18,7 +18,7 @@
     </RadialGradientBrush>
     
         
-    <!-- Buttons glow -->
+    <!-- Buttons glow Yellow -->
     <Style x:Key="GlowButton" TargetType="Button">
         <Setter Property="Background" Value="Green"/>
         <Setter Property="Foreground" Value="WhiteSmoke"/>

@@ -55,8 +55,8 @@
 
                     <StackPanel Orientation="Horizontal" Margin="0 0 0 12">
                         
-                        <Button Content="Sign In" Style="{StaticResource GlowButton}"
-                                Click="SignInButton_Click"
+                        <Button Content="Sign Up" Style="{StaticResource GlowButton}"
+                                Click="SignUpButton_Click"
                                 Width="130"
                                 Height="42"
                                 FontWeight="Bold"
@@ -64,8 +64,8 @@
                                 Background="LawnGreen"
                                  />
                         
-                        <Button Content="Sign Up" Style="{StaticResource GlowButton}"
-                                Click="SignUpButton_Click"
+                        <Button Content="Sign In" Style="{StaticResource GlowButton}"
+                                Click="SignInButton_Click"
                                 Width="130"
                                 Height="42"
                                 Margin="12 0 0 0"

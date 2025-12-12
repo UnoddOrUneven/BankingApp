@@ -62,6 +62,28 @@ public partial class UserDetails : Page
         AccountDetails.Visibility = Visibility.Visible;
         AccountDetails.DataContext = account;
     }
+
+    private void ChangeAccountName_Click(object sender, RoutedEventArgs e)
+    {
+        AccountName.Visibility = Visibility.Collapsed;
+        AccountNameTextBox.Visibility = Visibility.Visible;
+        ApplyAccountNameChangeButton.Visibility = Visibility.Visible;
+    }
+
+    private void ApplyAccountNameChange_Click(object sender, RoutedEventArgs e)
+    {
+        var account = getAccountFromButton(sender);
+        account.Name = AccountNameTextBox.Text;
+        
+        AccountName.Visibility = Visibility.Visible;
+        AccountNameTextBox.Visibility = Visibility.Hidden;
+        ApplyAccountNameChangeButton.Visibility = Visibility.Collapsed;
+    }
+
+   
+    
+    
+    
     
     private void Hide_Click(object sender, RoutedEventArgs e)
     {

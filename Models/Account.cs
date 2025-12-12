@@ -51,5 +51,10 @@ public class Account
     {
         IsOpen = false;
     }
+
+    public void ChangeName(string newname)
+    {
+        Name = newname;
+    }
     
 }
