@@ -106,7 +106,7 @@ public partial class UserDetails : Page
     
     private void TransferButton_Click(object sender, RoutedEventArgs e)
     {
-        TransferButton.ContextMenu.IsOpen = true;
+        NavigationService?.Navigate(new Transfer(_currentUser));
     }
 
     private void ToMyAccount_Click(object sender, RoutedEventArgs e)

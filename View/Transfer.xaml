@@ -1,0 +1,72 @@
+﻿<Page x:Class="BankingApp.View.Transfer"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:BankingApp.View"
+      
+      >
+
+    <Grid Background="{StaticResource RadialGradientBrushInner}" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- From Panel -->
+        <Border Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                CornerRadius="15" Background="#30FFFFFF"
+                Padding="20" Margin="10">
+            <StackPanel>
+                <TextBlock Text="From" FontSize="24" FontWeight="Bold" Foreground="White" Margin="0 0 0 10"/>
+                <ComboBox x:Name="FromAccountComboBox"
+                          Width="200"
+                          Height="30"
+                          Background="Transparent"
+                          Foreground="Transparent"
+                          Text="Select account"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Swap Button -->
+        <Button Grid.Column="1" Grid.Row="1" Width="50" Height="50"
+                Content="⇄" FontSize="24"
+                BorderThickness="0"
+                Background="Transparent" Foreground="White"
+                Click="SwapAccounts_Click" HorizontalAlignment="Center" VerticalAlignment="Center"
+                />
+
+        <!-- To Panel -->
+        <Border Grid.Column="2" Grid.Row="0" Grid.RowSpan="3"
+                CornerRadius="15" Background="#30FFFFFF"
+                Padding="20" Margin="10">
+            <StackPanel>
+                <TextBlock Text="To" FontSize="24" FontWeight="Bold" Foreground="White" Margin="0 0 0 10"/>
+                <ComboBox x:Name="ToAccountComboBox"
+                          Width="200"
+                          Height="30"
+                          Background="Transparent"
+                          Foreground="Transparent"
+                          Text="Select account"/>
+                
+            </StackPanel>
+        </Border>
+
+        <!-- Amount Panel -->
+        <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" Margin="0 20 0 0" HorizontalAlignment="Center">
+            <TextBlock Text="Amount" FontSize="20" FontWeight="Bold" Foreground="White" Margin="0 0 0 5" HorizontalAlignment="Center"/>
+            <TextBox x:Name="AmountTextBox" Width="200" Height="30" FontSize="16" HorizontalAlignment="Center" Background="Transparent" Foreground="Azure"/>
+            <Button Content="Transfer" Width="120" Height="35" Margin="0 10 0 0"
+                    Click="TransferButton_Click"
+                    Style="{StaticResource GlowButtonTransparentWhiteBorder}" FontWeight="Bold"
+                    HorizontalAlignment="Center"/>
+        </StackPanel>
+
+    </Grid>
+</Page>
