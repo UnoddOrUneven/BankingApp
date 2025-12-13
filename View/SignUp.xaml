@@ -23,6 +23,11 @@
                                FontWeight="Bold"
                                Opacity="0.9"
                                Margin="0 0 0 15" />
+                    <TextBlock Text="We store all user data in JSON"
+                               FontSize="18"
+                               FontStyle="Oblique"
+                               Foreground="#E0E0E0"
+                               Margin="0 0 0 4"/>
 
 
                     <TextBox x:Name="NameTextBox" Background="Transparent" Foreground="Azure" Margin="5" Width="250"
@@ -32,7 +37,7 @@
                              LostFocus="Name_LostFocus">
 
                     </TextBox>
-                    <Rectangle Height="20"></Rectangle>
+                    
 
                     <TextBox x:Name="PasswordTextBox" Background="Transparent" Foreground="Azure" Width="250"
                              Height="20" Margin="5"

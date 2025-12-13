@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankingApp"
         mc:Ignorable="d"
-        Title="Bank" 
+        Title="Default_Bank" 
         Width="900" Height="600" 
         WindowStartupLocation="CenterScreen"
         WindowStyle="ThreeDBorderWindow" 

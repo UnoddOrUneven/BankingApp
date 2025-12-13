@@ -54,6 +54,8 @@ public partial class UserDetails : Page
         
         HideAccountDetails();
     }
+    
+    
 
     private bool IsViewAccountOpen(Account account)
     {
@@ -146,5 +148,10 @@ public partial class UserDetails : Page
         NavigationService?.Navigate(new SignIn());
     }
 
+    private void Loan_Button_Click(object sender, RoutedEventArgs e)
+    {
+        var account = getAccountFromButton(sender);
+        NavigationService?.Navigate(new LoanContract(_currentUser, account));
+    }
     
 }

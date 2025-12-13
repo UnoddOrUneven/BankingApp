@@ -161,6 +161,39 @@
                            Text="{Binding Balance, StringFormat={}${0}}"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center" />
+                
+                
+                <!-- <Button -->
+                <!--     x:Name = "LoanButton" -->
+                <!--     Click = "Loan_Button_Click" -->
+                <!--     Style="{StaticResource GlowButtonTransparentWhiteBorder}" -->
+                <!--     Width="60" -->
+                <!--     Height="20" -->
+                <!--     FontSize="10" -->
+                <!--     Margin="0 0 300 0 " -->
+                <!--     VerticalAlignment="Center" -->
+                <!--     HorizontalAlignment="Right" -->
+                <!--     Content="Take a Loan" -->
+                <!-- /> -->
+                <Button Content="➕"
+                        Style="{StaticResource GlowButtonTransparentWhiteBorder}"
+                        Height="20"
+                        Width="20"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Margin="0 40 0 0 ">
+                        
+                        
+                    <Button.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Option 1" />
+                            <MenuItem Header="Option 2" />
+                        </ContextMenu>
+                    </Button.ContextMenu>
+                </Button> 
+                    
+                    
+                
 
 
                 <Button x:Name="TransferButton"
@@ -186,6 +219,8 @@
                     Click="DepositButton_Click"
                     >
                 </Button>
+                
+                
 
 
             </Grid>

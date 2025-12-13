@@ -76,9 +76,11 @@ public class Bank
     
     private async Task SaveToJsonAsync()
     {
-        string jsonString = JsonConvert.SerializeObject(this);
-        File.WriteAllText(BankJsonPath, jsonString);
+        var jsonString = JsonConvert.SerializeObject(this, Formatting.Indented);
+        
+        await File.WriteAllTextAsync(BankJsonPath, jsonString);
         _lastJson = jsonString;
+
     }
 
     private void LoadFromJson()
