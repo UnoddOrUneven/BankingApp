@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Transactions;
+using Newtonsoft.Json;
 
 namespace BankingApp.Models;
 
@@ -14,7 +15,7 @@ public class User
     public ObservableCollection<Account> Accounts {get; set;} = new();
     public List<SavingsAccount> SavingAccounts {get; set;} = new List<SavingsAccount>();
 
-    
+    [JsonConstructor]
     public User(string name, string password)
     {
         Name = name;

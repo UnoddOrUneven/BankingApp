@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Transactions;
+using Newtonsoft.Json;
 
 namespace BankingApp.Models;
 
@@ -15,6 +16,7 @@ public class Account : INotifyPropertyChanged
     protected void OnPropertyChanged(string propertyName) =>
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     
+    [JsonConstructor]
     public Account(decimal balance)
     {
         Balance = balance;

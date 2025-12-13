@@ -19,7 +19,7 @@
             
             <Grid Margin="10">
                 <StackPanel>
-                    <TextBlock Text="Probably Safe Bank"
+                    <TextBlock Text="Sign In"
                                FontSize="32"
                                Foreground="White"
                                FontWeight="Bold"

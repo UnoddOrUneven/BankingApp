@@ -12,11 +12,8 @@ public partial class SignUp : Page
     }
 
     private void SignInButton_Click(object sender, RoutedEventArgs e)
-    {
-        if (NavigationService.CanGoBack)
-        {
-            NavigationService.GoBack();
-        }
+    { 
+        NavigationService?.Navigate(new SignIn());
     }
 
     private void TextBox_GotFocus(object sender, RoutedEventArgs e)
