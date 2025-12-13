@@ -1,4 +1,5 @@
 ﻿using System.Printing;
+using System.Transactions;
 
 namespace BankingApp.Models;
 
@@ -27,6 +28,13 @@ public class Bank
     public bool IsNameAvailable(string name)
     {
         return Users.All(u => u.Name != name);
+    }
+
+    public void Transfer(Account sender, Account receiver, decimal amount)
+    {
+        sender.Withdraw(amount);
+        receiver.Deposit(amount);
+        
     }
 
     

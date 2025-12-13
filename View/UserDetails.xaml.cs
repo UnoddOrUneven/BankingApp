@@ -106,14 +106,21 @@ public partial class UserDetails : Page
     
     private void TransferButton_Click(object sender, RoutedEventArgs e)
     {
-        NavigationService?.Navigate(new Transfer(_currentUser));
+        var account = getAccountFromButton(sender);
+        NavigationService?.Navigate(new Transfer(_currentUser, fromAccount: account));
+    }
+
+    private void DepositButton_Click(object sender, RoutedEventArgs e)
+    {
+        var account = getAccountFromButton(sender);
+        NavigationService?.Navigate(new Transfer(_currentUser, toAccount: account));
+        
     }
 
     private void ToMyAccount_Click(object sender, RoutedEventArgs e)
     {
         HideAccountDetails();
         ShowUsersAccount_list();
-        // Show a list of user's accounts
     }
 
     private void ShowUsersAccount_list()

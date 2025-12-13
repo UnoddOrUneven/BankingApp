@@ -25,14 +25,14 @@ public class Account
     protected List<string> Transactions { get; set; } = new List<string>();
 
 
-    public void Deposit(int amount)
+    public void Deposit(decimal amount)
     {
         Balance += amount;
     }
 
-    public void Withdraw(int amount)
+    public void Withdraw(decimal amount)
     {
-        if (Balance > amount)
+        if (Balance >= amount)
         {
             Balance -= amount;
         }

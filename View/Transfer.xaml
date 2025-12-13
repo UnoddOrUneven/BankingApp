@@ -3,70 +3,121 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="clr-namespace:BankingApp.View"
-      
-      >
+      xmlns:local="clr-namespace:BankingApp.View">
 
-    <Grid Background="{StaticResource RadialGradientBrushInner}" >
+    <Grid Background="{StaticResource RadialGradientBrushInner}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <!-- From Panel -->
-        <Border Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+        <Border Grid.Column="0" Grid.Row="0"
                 CornerRadius="15" Background="#30FFFFFF"
-                Padding="20" Margin="10">
+                Padding="20" Margin="10"
+                Height="300">
+
             <StackPanel>
-                <TextBlock Text="From" FontSize="24" FontWeight="Bold" Foreground="White" Margin="0 0 0 10"/>
+                <TextBlock Text="From" FontSize="24" FontWeight="Bold" Foreground="White" Margin="0 0 0 10" />
                 <ComboBox x:Name="FromAccountComboBox"
-                          Width="200"
+                          Width="150"
                           Height="30"
-                          Background="Transparent"
-                          Foreground="Transparent"
-                          Text="Select account"/>
+                          Background="Khaki"
+                          Foreground="Black"
+                          Text="Select account">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Name}" Foreground="Black" />
+                                <TextBlock Text="{Binding Balance, StringFormat={}(${0})}" Foreground="Black" />
+                            </StackPanel>
+
+                        </DataTemplate>
+
+                    </ComboBox.ItemTemplate>
+
+                </ComboBox>
+
+
             </StackPanel>
         </Border>
 
         <!-- Swap Button -->
         <Button Grid.Column="1" Grid.Row="1" Width="50" Height="50"
                 Content="⇄" FontSize="24"
+                Style="{StaticResource GlowButtonWhite}"
                 BorderThickness="0"
                 Background="Transparent" Foreground="White"
-                Click="SwapAccounts_Click" HorizontalAlignment="Center" VerticalAlignment="Center"
-                />
+                Click="SwapAccounts_Click" HorizontalAlignment="Center" VerticalAlignment="Top"
+                Margin="0 -200 0 0 " />
 
         <!-- To Panel -->
-        <Border Grid.Column="2" Grid.Row="0" Grid.RowSpan="3"
+        <Border Grid.Column="2" Grid.Row="0"
                 CornerRadius="15" Background="#30FFFFFF"
-                Padding="20" Margin="10">
+                Padding="20" Margin="10"
+                Height="300">
             <StackPanel>
-                <TextBlock Text="To" FontSize="24" FontWeight="Bold" Foreground="White" Margin="0 0 0 10"/>
+                <TextBlock Text="To" FontSize="24" FontWeight="Bold" Foreground="White" Margin="0 0 0 10" />
                 <ComboBox x:Name="ToAccountComboBox"
-                          Width="200"
+                          Width="150"
                           Height="30"
                           Background="Transparent"
                           Foreground="Transparent"
-                          Text="Select account"/>
-                
+
+                          Text="Select account">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Name}" Foreground="Black" />
+                                <TextBlock Text="{Binding Balance, StringFormat={}(${0})}" Foreground="Black" />
+                            </StackPanel>
+
+                        </DataTemplate>
+
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
             </StackPanel>
         </Border>
 
         <!-- Amount Panel -->
-        <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" Margin="0 20 0 0" HorizontalAlignment="Center">
-            <TextBlock Text="Amount" FontSize="20" FontWeight="Bold" Foreground="White" Margin="0 0 0 5" HorizontalAlignment="Center"/>
-            <TextBox x:Name="AmountTextBox" Width="200" Height="30" FontSize="16" HorizontalAlignment="Center" Background="Transparent" Foreground="Azure"/>
+        <Button
+            Click="GoBackButton_Click"
+            Style="{StaticResource GlowButtonWhite}"
+            BorderThickness="0"
+            Foreground="White"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="10 10 0 0 "
+            Content="🔙"
+            Background="Transparent" />
+        <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" Margin="0 20 0 100" HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+            <TextBlock Text="Amount" FontSize="20" FontWeight="Bold" Foreground="White" Margin="0 0 0 5"
+                       HorizontalAlignment="Center" />
+            <TextBox x:Name="AmountTextBox" Width="200" Height="30" FontSize="16" HorizontalAlignment="Center"
+                     Background="Transparent" Foreground="Azure" 
+                     PreviewTextInput="TextBox_PreviewTextInput"
+                     PreviewKeyDown="TextBox_PreviewKeyDown"
+                     DataObject.Pasting="TextBox_Pasting" />
+            
+            
             <Button Content="Transfer" Width="120" Height="35" Margin="0 10 0 0"
                     Click="TransferButton_Click"
                     Style="{StaticResource GlowButtonTransparentWhiteBorder}" FontWeight="Bold"
-                    HorizontalAlignment="Center"/>
+                    HorizontalAlignment="Center" />
+
+
         </StackPanel>
 
+
     </Grid>
+
 </Page>
