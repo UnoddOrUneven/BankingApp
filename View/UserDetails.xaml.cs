@@ -14,8 +14,16 @@ public partial class UserDetails : Page
         
         _currentUser = user;
         
-        _currentUser.CreateAccount("Default");
-        _currentUser.Accounts[0].Balance = 1000;
+        
+
+        // Test money
+        if (_currentUser.Accounts.Count == 0)
+        {
+            _currentUser.CreateAccount("Default");
+            _currentUser.Accounts[0].Balance = 1000;
+        }
+        
+        
         LoadData();
     }
 

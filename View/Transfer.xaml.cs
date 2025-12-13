@@ -8,34 +8,47 @@ namespace BankingApp.View
     public partial class Transfer : Page
     {
         private User _currentUser;
-        private Account _firstSelectedFromAccount;
-        private Account _firstSelectedToAccount;
+        private Account? _selectedFromAccount;
+        private Account? _selectedToAccount;
+        private List<Account> _openAccounts;
 
         public Transfer(User user, Account? fromAccount = null, Account? toAccount = null)
         {
             _currentUser = user;
-            _firstSelectedFromAccount = fromAccount;
-            _firstSelectedToAccount = toAccount;
+            _selectedFromAccount = fromAccount;
+            _selectedToAccount = toAccount;
             InitializeComponent();
             LoadData();
         }
 
         private void LoadData()
         {
-            var openAccounts = _currentUser.Accounts
+            _openAccounts = _currentUser.Accounts
                 .Where(a => a.IsOpen)
                 .ToList();
             
-            FromAccountComboBox.ItemsSource = openAccounts;
-            ToAccountComboBox.ItemsSource = openAccounts;
+            FromAccountComboBox.ItemsSource = _openAccounts;
+            ToAccountComboBox.ItemsSource = _openAccounts;
             
-            FromAccountComboBox.SelectedItem = openAccounts
-                .FirstOrDefault(a => a == _firstSelectedFromAccount);
+            FromAccountComboBox.SelectedValue = _selectedFromAccount;
+            ToAccountComboBox.SelectedValue = _selectedToAccount;
             
-            ToAccountComboBox.SelectedItem = openAccounts
-                .FirstOrDefault(a => a == _firstSelectedToAccount);
         }
-        
+
+        private void RefreshData()
+        {
+            
+            RefreshTransferButton();
+            
+        }
+
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _selectedFromAccount = FromAccountComboBox.SelectedItem as Account;
+            _selectedToAccount = ToAccountComboBox.SelectedItem as Account;
+            RefreshData();
+        }
         
         private void SwapAccounts_Click(object sender, RoutedEventArgs e)
         {
@@ -45,22 +58,44 @@ namespace BankingApp.View
         
         private void TransferButton_Click(object sender, RoutedEventArgs e)
         {
-            var from = FromAccountComboBox.SelectedItem as Account;
-            var to = ToAccountComboBox.SelectedItem as Account;
-            var ammount = GetTransferAmount();
             try
             {
+                var from = FromAccountComboBox.SelectedItem as Account;
+                var to = ToAccountComboBox.SelectedItem as Account;
+
+                
+                
+                var ammount = GetTransferAmount();
                 Bank.Instance.Transfer(from, to, ammount);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            RefreshData();
             
         }
 
+        private bool AreFieldsReady()
+        {
+            var from = FromAccountComboBox.SelectedItem as Account;
+            var to = ToAccountComboBox.SelectedItem as Account;
+            return (from != null && to != null);
+        }
+
+        private void RefreshTransferButton()
+        {
+            TransferButton.IsEnabled = AreFieldsReady();
+        }
+        
+        
+
         private decimal GetTransferAmount()
         {
+            if (AmountTextBox.Text == "")
+            {
+                throw new Exception("Amount cannot be empty");
+            }
             if (int.TryParse(AmountTextBox.Text, out int amount))
             {
                 decimal transferAmount = amount;
@@ -74,7 +109,8 @@ namespace BankingApp.View
 
         private void GoBackButton_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService?.GoBack();
+            RefreshData();
+            NavigationService?.Navigate(new UserDetails(_currentUser));
         }
         
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)

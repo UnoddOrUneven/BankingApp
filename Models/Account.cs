@@ -1,8 +1,9 @@
-﻿using System.Transactions;
+﻿using System.ComponentModel;
+using System.Transactions;
 
 namespace BankingApp.Models;
 
-public class Account
+public class Account : INotifyPropertyChanged
 {
     public Account(string name = "Account")
     {
@@ -10,18 +11,33 @@ public class Account
         Balance = 0;
     }
 
-
+    public event PropertyChangedEventHandler PropertyChanged;
+    protected void OnPropertyChanged(string propertyName) =>
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    
     public Account(decimal balance)
     {
         Balance = balance;
     }
 
-
+    
     public bool IsOpen { get; set; } = true;
     public string Name { get; set; } = "Account";
-    public decimal Balance { get; set; }
+    private decimal _balance;
+    public decimal Balance { 
+        get => _balance;
+        set
+        {
+            _balance = value;
+            OnPropertyChanged(nameof(Balance));
+        }
+        
+        
+    }
     protected decimal Time { get; set; }
-
+    
+    
+    
     protected List<string> Transactions { get; set; } = new List<string>();
 
 
