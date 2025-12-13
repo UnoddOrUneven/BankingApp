@@ -229,7 +229,7 @@
         </Setter>
     </Style>
     
-    <!-- No glow button -->
+    <!-- white glow button -->
     <Style x:Key="GlowButtonWhite" TargetType="Button">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Template">

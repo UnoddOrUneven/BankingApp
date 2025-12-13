@@ -141,5 +141,10 @@ public partial class UserDetails : Page
         // Show a search box for other users
     }
 
+    private void LogOut_Click(object sender, RoutedEventArgs e)
+    {
+        NavigationService?.Navigate(new SignIn());
+    }
+
     
 }

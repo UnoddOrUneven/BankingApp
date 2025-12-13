@@ -22,7 +22,19 @@ public class Account : INotifyPropertyChanged
 
     
     public bool IsOpen { get; set; } = true;
-    public string Name { get; set; } = "Account";
+    private string _name { get; set; } = "Account";
+
+    public string Name
+    {
+        get => _name;
+        
+        set
+        {
+            _name = value;
+            OnPropertyChanged(nameof(Name));
+        }
+    }
+    
     private decimal _balance;
     public decimal Balance { 
         get => _balance;
@@ -31,8 +43,6 @@ public class Account : INotifyPropertyChanged
             _balance = value;
             OnPropertyChanged(nameof(Balance));
         }
-        
-        
     }
     protected decimal Time { get; set; }
     
