@@ -3,7 +3,9 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="clr-namespace:BankingApp.View">
+      xmlns:local="clr-namespace:BankingApp.View"
+      xmlns:helpers="clr-namespace:BankingApp.Helpers">
+
 
     <Grid Background="{StaticResource RadialGradientBrushInner}">
         <Grid.ColumnDefinitions>
@@ -98,19 +100,24 @@
             Margin="10 10 0 0 "
             Content="🔙"
             Background="Transparent" />
+
         <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" Margin="0 20 0 100" HorizontalAlignment="Center"
                     VerticalAlignment="Center">
 
             <TextBlock Text="Amount" FontSize="20" FontWeight="Bold" Foreground="White" Margin="0 0 0 5"
                        HorizontalAlignment="Center" />
+            
+            <Grid>
+            <TextBlock Text="$" FontSize="16" FontWeight="Bold" Foreground="White" Margin="5 0 0 0"
+                       HorizontalAlignment="Left" VerticalAlignment="Center"/>
             <TextBox x:Name="AmountTextBox" Width="200" Height="30" FontSize="16" HorizontalAlignment="Center"
-                     Background="Transparent" Foreground="Azure" 
-                     PreviewTextInput="TextBox_PreviewTextInput"
-                     PreviewKeyDown="TextBox_PreviewKeyDown"
-                     DataObject.Pasting="TextBox_Pasting" />
+                     Background="Transparent" Foreground="Azure"
+                     Padding="20 0 5 0"
+                     helpers:NumericTextBoxBehavior.IsNumeric="True" />
+            </Grid>
             
-            
-            <Button x:Name = "TransferButton"
+
+            <Button x:Name="TransferButton"
                     IsEnabled="False"
                     Content="Transfer" Width="120" Height="35" Margin="0 10 0 0"
                     Click="TransferButton_Click"

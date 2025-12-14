@@ -3,9 +3,12 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      
       xmlns:local="clr-namespace:BankingApp.View"
       xmlns:system="clr-namespace:System;assembly=System.Runtime"
       xmlns:models="clr-namespace:BankingApp.Models"
+      xmlns:helpers="clr-namespace:BankingApp.Helpers"
+
       mc:Ignorable="d"
       Title="UserDetails" Background="{StaticResource RadialGradientBrushInner}">
     
@@ -228,7 +231,35 @@
 
         </Border>
 
-        
+        <Border CornerRadius="25"
+                Padding="30"
+                HorizontalAlignment="left"
+                VerticalAlignment="Center"
+                Margin="10"
+                Background="#20FFFFFF">
+
+            <StackPanel Width="200" Height="400">
+                <TextBlock
+                    FontSize="23"
+                    FontStyle="Italic"
+                    Foreground="White"
+                    Margin="0 0 0 20"
+                    Text="Get a personal loan" />
+                
+                <TextBox
+                    Name = "LoanSumTextBox"
+                    helpers:NumericTextBoxBehavior.IsNumeric="True"
+                    Background="Transparent"
+                    Foreground="Azure"
+                    
+                    />
+                </StackPanel>
+                
+                
+            
+            
+            
+            </Border>
 
         <Border CornerRadius="25"
                 Padding="30"

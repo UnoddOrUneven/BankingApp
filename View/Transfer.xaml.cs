@@ -113,30 +113,7 @@ namespace BankingApp.View
             NavigationService?.Navigate(new UserDetails(_currentUser));
         }
         
-        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            e.Handled = !int.TryParse(e.Text, out _);
-        }
-
-        private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Space)
-                e.Handled = true;
-        }
-
-        private void TextBox_Pasting(object sender, DataObjectPastingEventArgs e)
-        {
-            if (!e.SourceDataObject.GetDataPresent(DataFormats.Text))
-            {
-                e.CancelCommand();
-                return;
-            }
-
-            var text = e.SourceDataObject.GetData(DataFormats.Text) as string;
-
-            if (!int.TryParse(text, out var value) || value <= 0)
-                e.CancelCommand();
-        }
+        
         
     }
 }
