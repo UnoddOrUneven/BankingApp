@@ -1,6 +1,8 @@
 ﻿using System.Windows;
+using System.Windows.Baml2006;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using BankingApp.Models;
 
 namespace BankingApp.View
@@ -30,16 +32,14 @@ namespace BankingApp.View
             FromAccountComboBox.ItemsSource = _openAccounts;
             ToAccountComboBox.ItemsSource = _openAccounts;
             
-            FromAccountComboBox.SelectedValue = _selectedFromAccount;
-            ToAccountComboBox.SelectedValue = _selectedToAccount;
+            FromAccountComboBox.SelectedItem = _selectedFromAccount;
+            ToAccountComboBox.SelectedItem = _selectedToAccount;
             
         }
 
         private void RefreshData()
         {
-            
             RefreshTransferButton();
-            
         }
 
 
@@ -50,9 +50,49 @@ namespace BankingApp.View
             RefreshData();
         }
         
-        private void SwapAccounts_Click(object sender, RoutedEventArgs e)
+        private void SwapAccounts_OnClick(object sender, RoutedEventArgs e)
         {
             
+        }
+
+
+
+        private Account? FindToAccount(string username)
+        {
+            return Bank.Instance.FindUserRecieverAccount(username);
+        }
+
+
+        private void RefreshMessage(bool IsUserFound)
+        {
+            MessageTextBlock.Visibility = Visibility.Visible;
+            if (IsUserFound)
+            {
+                MessageTextBlock.Foreground = Brushes.Lime;
+                MessageTextBlock.Text = "Existing user";
+            }
+            else
+            {
+                MessageTextBlock.Foreground = Brushes.Red;
+                MessageTextBlock.Text = "User not found"; 
+            }
+            
+        }
+        
+        
+        private Account? GetToAccount()
+        {
+            if (ToAccountComboBox.SelectedItem is Account selectedAccount)
+            {
+                return selectedAccount;
+            }
+            
+            if (!string.IsNullOrWhiteSpace(FindUsersTextBox.Text))
+            {
+                return FindToAccount(FindUsersTextBox.Text);
+            }
+
+            return null;
         }
 
         
@@ -61,12 +101,9 @@ namespace BankingApp.View
             try
             {
                 var from = FromAccountComboBox.SelectedItem as Account;
-                var to = ToAccountComboBox.SelectedItem as Account;
-
-                
-                
-                var ammount = GetTransferAmount();
-                Bank.Instance.Transfer(from, to, ammount);
+                var to = GetToAccount();
+                var amount = GetTransferAmount();
+                Bank.Instance.Transfer(from, to, amount);
             }
             catch (Exception ex)
             {
@@ -75,12 +112,21 @@ namespace BankingApp.View
             RefreshData();
             
         }
+        
+        
+        
+        
+        
+        
 
         private bool AreFieldsReady()
         {
             var from = FromAccountComboBox.SelectedItem as Account;
-            var to = ToAccountComboBox.SelectedItem as Account;
-            return (from != null && to != null);
+
+            bool hasInternalTarget = ToAccountComboBox.SelectedItem is Account;
+            bool hasExternalTarget = FindToAccount(FindUsersTextBox.Text) != null;
+
+            return from != null && (hasInternalTarget || hasExternalTarget);
         }
 
         private void RefreshTransferButton()
@@ -107,13 +153,51 @@ namespace BankingApp.View
             }
         }
 
-        private void GoBackButton_Click(object sender, RoutedEventArgs e)
+        private void GoBackButton_OnClick(object sender, RoutedEventArgs e)
         {
             RefreshData();
             NavigationService?.Navigate(new UserDetails(_currentUser));
         }
+
+
         
         
+        private void AllUsersClearSearchButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            FindUsersTextBox.Text = "";
+        }
+
+        private void FindUsersTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            ToAccountComboBox.SelectedItem = null;
+            RefreshData();
+            RefreshMessage(FindToAccount(FindUsersTextBox.Text) != null);
+        }
+
+        private void FindUsersTextBox_OnGotFocus(object sender, RoutedEventArgs e)
+        {
+            ToAccountComboBox.SelectedItem = null;
+            RefreshData();
+        }
+
+        private void ToAccountComboBox_OnGotFocus(object sender, RoutedEventArgs e)
+        {
+            FindUsersTextBox.Text = "";
+        }
+
+        private void FindUsersTextBox_OnLostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(FindUsersTextBox.Text))
+            {
+                MessageTextBlock.Visibility = Visibility.Collapsed;
+                return;
+            }
+
+            var account = FindToAccount(FindUsersTextBox.Text);
+            RefreshMessage(account != null);
+            RefreshData();
+        }
+
         
     }
 }

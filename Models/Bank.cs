@@ -57,8 +57,19 @@ public class Bank
         return Users.FirstOrDefault(u => u.Name == name && u.Password == password);
     }
 
+    public Account? FindUserRecieverAccount(string username)
+    {
+        return Users?
+            .FirstOrDefault(u => u.Name == username)?
+            .Accounts?
+            .FirstOrDefault(a => a.IsOpen);
+        
+        
+    }
 
-
+   
+    
+    
     private async Task SaveIfNeeded()
     {
         if (!IsJsonAvailable()) return;

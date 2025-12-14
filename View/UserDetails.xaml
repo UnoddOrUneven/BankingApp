@@ -166,39 +166,6 @@
                            VerticalAlignment="Center" />
                 
                 
-                <!-- <Button -->
-                <!--     x:Name = "LoanButton" -->
-                <!--     Click = "Loan_Button_Click" -->
-                <!--     Style="{StaticResource GlowButtonTransparentWhiteBorder}" -->
-                <!--     Width="60" -->
-                <!--     Height="20" -->
-                <!--     FontSize="10" -->
-                <!--     Margin="0 0 300 0 " -->
-                <!--     VerticalAlignment="Center" -->
-                <!--     HorizontalAlignment="Right" -->
-                <!--     Content="Take a Loan" -->
-                <!-- /> -->
-                <Button Content="➕"
-                        Style="{StaticResource GlowButtonTransparentWhiteBorder}"
-                        Height="20"
-                        Width="20"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        Margin="0 40 0 0 ">
-                        
-                        
-                    <Button.ContextMenu>
-                        <ContextMenu>
-                            <MenuItem Header="Option 1" />
-                            <MenuItem Header="Option 2" />
-                        </ContextMenu>
-                    </Button.ContextMenu>
-                </Button> 
-                    
-                    
-                
-
-
                 <Button x:Name="TransferButton"
                         Content="Transfer"
                         Style="{StaticResource GlowButtonTransparentWhiteBorder}"
@@ -222,23 +189,20 @@
                     Click="DepositButton_Click"
                     >
                 </Button>
-                
-                
-
-
             </Grid>
-
-
         </Border>
-
-        <Border CornerRadius="25"
+        
+        <Border 
+                Name = "LoanPanel"
+                Visibility="Collapsed"
+                CornerRadius="25"
                 Padding="30"
                 HorizontalAlignment="left"
                 VerticalAlignment="Center"
                 Margin="10"
                 Background="#20FFFFFF">
-
-            <StackPanel Width="200" Height="400">
+            
+            <StackPanel  Width="200" Height="400" >
                 <TextBlock
                     FontSize="23"
                     FontStyle="Italic"
@@ -246,12 +210,28 @@
                     Margin="0 0 0 20"
                     Text="Get a personal loan" />
                 
-                <TextBox
-                    Name = "LoanSumTextBox"
+                <Grid>
+                    <TextBlock Text="$" FontSize="16" FontWeight="Bold" Foreground="White" Margin="5 0 0 0"
+                               HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox
+                    Name = "LoanAmountTextBox"
+                    TextChanged="LoanAmountTextBox_OnTextChanged"
                     helpers:NumericTextBoxBehavior.IsNumeric="True"
                     Background="Transparent"
+                    FontSize="23"
+                    Padding="20 0 5 0 "
                     Foreground="Azure"
-                    
+                    Height="30"
+                    />
+                </Grid>
+                
+                <Button
+                    Name = "ShowContractButton"
+                    Margin="0 30 0 0 "
+                    Style="{StaticResource GlowButtonYellow}"
+                    Content="Show the contract"
+                    Click = "Loan_Button_Click"
+                    IsEnabled="False"
                     />
                 </StackPanel>
                 
