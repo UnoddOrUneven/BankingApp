@@ -277,11 +277,13 @@
                     Text="Accounts" />
 
                 <Button Style="{StaticResource GlowButtonYellow}"
-                        Width="200"
-                        Height="30"
+                        Width="190"
+                        Height="25"
                         Content="Open a new account"
                         Foreground="Azure"
-                        Click="OpenNewAccount_Click">
+                        Click="OpenNewAccount_Click"
+                        >
+                        
 
                 </Button>
 

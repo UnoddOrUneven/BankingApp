@@ -41,7 +41,7 @@
                             
                             <Setter TargetName="border" Property="Effect">
                                 <Setter.Value>
-                                    <DropShadowEffect Color="GreenYellow" BlurRadius="15" ShadowDepth="0"/>
+                                    <DropShadowEffect Color="GreenYellow" BlurRadius="11" ShadowDepth="0"/>
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
@@ -104,7 +104,7 @@
                                 <Setter.Value>
                                     <DropShadowEffect
                                         Color="GreenYellow"
-                                        BlurRadius="15"
+                                        BlurRadius="11"
                                         ShadowDepth="0"/>
                                 </Setter.Value>
                             </Setter>
@@ -179,7 +179,7 @@
                             
                             <Setter TargetName="border" Property="Effect">
                                 <Setter.Value>
-                                    <DropShadowEffect Color="Transparent" BlurRadius="15" ShadowDepth="0"/>
+                                    <DropShadowEffect Color="Transparent" BlurRadius="11" ShadowDepth="0"/>
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
