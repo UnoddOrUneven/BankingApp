@@ -30,7 +30,17 @@ public partial class UserDetails : Page
     {
         _currentUser.CreateAccount();
         LoadData();
+        var newAccount = _currentUser.Accounts.Last();
+        ViewAccountAndChangeName(newAccount);
+        
     }
+
+    private void ViewAccountAndChangeName(Account account)
+    {
+        showAccountDetails(account);
+        ShowChangeAccountName();
+    }
+    
     private Account? getAccountFromButton(object sender)
     {
         if (sender is not Button button) return null;
@@ -59,20 +69,46 @@ public partial class UserDetails : Page
     {
         AccountDetails.Visibility = Visibility.Visible;
         AccountDetails.DataContext = account;
+        LoanPanel.Visibility = Visibility.Visible;
     }
     private void ChangeAccountName_Click(object sender, RoutedEventArgs e)
     {
+        if (!IsChangeAccountNameOpen())
+        {
+            ShowChangeAccountName();
+        }
+        else
+        {
+            HideChangeAccountName();
+        }
+        
+
+        
+    }
+    private void ShowChangeAccountName()
+    {
         AccountName.Visibility = Visibility.Collapsed;
         AccountNameTextBox.Visibility = Visibility.Visible;
-        ApplyAccountNameChangeButton.Visibility = Visibility.Visible;
+        
     }
-    private void ApplyAccountNameChange_Click(object sender, RoutedEventArgs e)
+
+    private void HideChangeAccountName()
     {
-        var account = getAccountFromButton(sender);
+        AccountName.Visibility = Visibility.Visible;
+        AccountNameTextBox.Visibility = Visibility.Collapsed;
+    }
+
+    private bool IsChangeAccountNameOpen()
+    {
+        return (AccountNameTextBox.Visibility == Visibility.Visible);
+    }
+
+
+    private void ApplyAccountNameChange(Account account)
+    {
         account.Name = AccountNameTextBox.Text;
         AccountName.Visibility = Visibility.Visible;
         AccountNameTextBox.Visibility = Visibility.Hidden;
-        ApplyAccountNameChangeButton.Visibility = Visibility.Collapsed;
     }
     private void Hide_Click(object sender, RoutedEventArgs e)
     {
@@ -95,7 +131,7 @@ public partial class UserDetails : Page
         }
         
         showAccountDetails(account);
-        LoanPanel.Visibility = Visibility.Visible;
+        
     }
     private void TransferButton_Click(object sender, RoutedEventArgs e)
     {
@@ -146,10 +182,12 @@ public partial class UserDetails : Page
 
     private void RefreshLoanButton()
     {
-        ShowContractButton.IsEnabled = IsLoanAmountValid();
+        ContractButton.IsEnabled = (_currentUser.Debt.Amount == 0 && IsLoanAmountValid());
+        Console.WriteLine(_currentUser.Debt.Amount);
     }
     private void Loan_Button_Click(object sender, RoutedEventArgs e)
     {
+        
         var account = _currentAccount;
         var loanAmount = GetLoanAmount();
         
@@ -162,5 +200,7 @@ public partial class UserDetails : Page
         };
 
         window.ShowDialog();
+        
+        RefreshLoanButton();
     }
 }

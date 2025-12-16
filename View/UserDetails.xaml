@@ -105,20 +105,7 @@
 
                     ✒️
                 </Button>
-
-                <Button
-                    x:Name="ApplyAccountNameChangeButton"
-                    Click="ApplyAccountNameChange_Click"
-                    Style="{StaticResource GlowButtonYellow}"
-                    Height="20"
-                    Width="20"
-                    Visibility="Hidden"
-                    VerticalAlignment="Top"
-                    HorizontalAlignment="Right"
-                    Background="Transparent"
-                    Margin="0,40,0,0">
-                    ✔️
-                </Button>
+                
 
 
                 <!-- Top left buttons -->
@@ -226,14 +213,33 @@
                 </Grid>
                 
                 <Button
-                    Name = "ShowContractButton"
+                    Name = "ContractButton"
                     Margin="0 30 0 0 "
                     Style="{StaticResource GlowButtonYellow}"
                     Content="Show the contract"
                     Click = "Loan_Button_Click"
                     IsEnabled="False"
                     />
+                
+                <Border Height="1"
+                        Margin="0 20 0 20"
+                        Background="#40FFFFFF" />
+                
+                
+                <TextBlock
+                    Text="Debt"
+                    FontSize="16"
+                    Foreground="Azure"
+                    />
+                
+                <TextBlock
+                    Text="{Binding Debt.Amount}"
+                    FontSize="16"
+                    Foreground="Azure"
+                />
+                
                 </StackPanel>
+            
                 
                 
             

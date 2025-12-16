@@ -21,9 +21,10 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         MainFrame.Navigate(new SignUp());
-        
+        MainFrame.CommandBindings.Add(new CommandBinding(NavigationCommands.BrowseBack, (s, e) => e.Handled = true));
+        MainFrame.CommandBindings.Add(new CommandBinding(NavigationCommands.BrowseForward, (s, e) => e.Handled = true));
+
     }
-    
     
     
    

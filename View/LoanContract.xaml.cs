@@ -57,7 +57,16 @@ public partial class LoanContract : Page
 
     private void SaveSignatureButton_OnClick(object sender, RoutedEventArgs e)
     {
-        _account.Deposit(_loanAmount);
+        GiveLoan();
         Window.GetWindow(this)?.Close();
     }
+
+    private void GiveLoan()
+    {
+        _account.Deposit(_loanAmount);
+        _user.Debt.Date = DateTime.Now;
+        _user.Debt.Amount = _loanAmount;
+        _user.Debt.MonthlyInterestRate = 0.2m;
+    }
+    
 }

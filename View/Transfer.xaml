@@ -53,14 +53,7 @@
             </StackPanel>
         </Border>
 
-        <!-- Swap Button -->
-        <Button Grid.Column="1" Grid.Row="1" Width="50" Height="50"
-                Content="⇄" FontSize="24"
-                Style="{StaticResource GlowButtonWhite}"
-                BorderThickness="0"
-                Background="Transparent" Foreground="White"
-                Click="SwapAccounts_OnClick" HorizontalAlignment="Center" VerticalAlignment="Top"
-                Margin="0 -255 0 0 " />
+        
 
         <!-- To Panel -->
         <Border Grid.Column="2" Grid.Row="0"
@@ -131,16 +124,7 @@
         </Border>
 
         <!-- Amount Panel -->
-        <Button
-            Click="GoBackButton_OnClick"
-            Style="{StaticResource GlowButtonWhite}"
-            BorderThickness="0"
-            Foreground="White"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Margin="10 10 0 0 "
-            Content="🔙"
-            Background="Transparent" />
+        
 
         <StackPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" Margin="0 20 0 100" HorizontalAlignment="Center"
                     VerticalAlignment="Center">
@@ -155,6 +139,18 @@
                      Background="Transparent" Foreground="Azure"
                      Padding="20 0 5 0"
                      helpers:NumericTextBoxBehavior.IsNumeric="True" />
+            
+            <Button
+                Click="GoBackButton_OnClick"
+                Style="{StaticResource GlowButtonWhite}"
+                BorderThickness="0"
+                Foreground="White"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Margin="-30 0 40 0 "
+                Content="⬅️"
+                FontSize="20"
+                Background="Transparent" />
             </Grid>
             
 
