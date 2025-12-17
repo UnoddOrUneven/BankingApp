@@ -63,10 +63,13 @@ public partial class LoanContract : Page
 
     private void GiveLoan()
     {
+        decimal InterestRate = Bank.Instance.MonthlyInterestRate;
+        
         _account.Deposit(_loanAmount);
         _user.Debt.Date = DateTime.Now;
         _user.Debt.Amount = _loanAmount;
-        _user.Debt.MonthlyInterestRate = 0.2m;
+        _user.Debt.MonthlyInterestRate = InterestRate;
+        _user.Debt.ApplyInterestRate();
     }
     
 }

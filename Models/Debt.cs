@@ -25,17 +25,26 @@ public class Debt
         Amount += Amount * MonthlyInterestRate;
     }
 
-    public void PayDebt(decimal amount)
+    public void Pay(decimal payment)
     {
-        Amount -= amount;
+        Amount -= payment;
         if (Amount < 0)
         {
-            
+            Amount = 0;
         }
         
     }
-    
-    
+
+    public bool IsClosingAvailable(Account account)
+    {
+        return account.Balance >= Amount;
+    }
+
+    public void Close(Account account)
+    {
+        account.Withdraw(Amount);
+        Amount = 0;
+    }
     
     
 }

@@ -16,6 +16,8 @@ public class Bank
     private string _lastJson;
 
     public List<User> Users { get; private set; } = new List<User>();
+
+    public decimal MonthlyInterestRate { get; private set; } = 0.15m;
     
     [JsonConstructor]
     public Bank()

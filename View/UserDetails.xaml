@@ -125,6 +125,7 @@
                     x:Name="AccountName"
                     FontSize="30"
                     Margin="10 10 10 10"
+                    Padding="0 0 0 10"
                     Foreground="Azure"
                     Text="{Binding Name, StringFormat={}Account: {0}}"
                     HorizontalAlignment="Center"
@@ -206,7 +207,7 @@
                     helpers:NumericTextBoxBehavior.IsNumeric="True"
                     Background="Transparent"
                     FontSize="23"
-                    Padding="20 0 5 0 "
+                    Padding="20 0 0 0 "
                     Foreground="Azure"
                     Height="30"
                     />
@@ -225,18 +226,44 @@
                         Margin="0 20 0 20"
                         Background="#40FFFFFF" />
                 
-                
-                <TextBlock
-                    Text="Debt"
-                    FontSize="16"
-                    Foreground="Azure"
+                <StackPanel
+                    Name = "DebtPanel"
+                    Visibility="Hidden"
+                    >
+                    
+                    <TextBlock
+                        Text="Loan must be closed before reapplying"
+                        FontSize="11"
+                        Foreground="Azure"
+                    /> 
+                    
+                    <TextBlock
+                        Name = "DebtDate"
+                        Foreground="WhiteSmoke"
+                        Text=""
+                        FontSize="12"
+                        />
+                    <TextBlock
+                        Name = "DebtNumber"
+                        Text = ""
+                        FontSize="15"
+                        Foreground="Red"
+                        
+                        />
+                    
+                    <Button 
+                        Name = "RepayButton"
+                        Content="Repay"
+                        Style="{StaticResource GlowButtonYellow}"
+                        Click = "RepayButton_OnClick"
+                        Margin="0 15 0 0 "
                     />
+                </StackPanel>
                 
-                <TextBlock
-                    Text="{Binding Debt.Amount}"
-                    FontSize="16"
-                    Foreground="Azure"
-                />
+                
+                
+                
+                
                 
                 </StackPanel>
             

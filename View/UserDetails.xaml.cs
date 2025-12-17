@@ -25,7 +25,28 @@ public partial class UserDetails : Page
     {
         UserNameText.Text = _currentUser.Name;
         AccountsList.ItemsSource = _currentUser.Accounts.Where(account => account.IsOpen);
+        
+        RefreshDebtPanel();
     }
+
+    private void RefreshDebtPanel()
+    {
+        if (_currentUser.Debt.Amount > 0)
+        {
+            DebtPanel.Visibility = Visibility.Visible;
+            DebtNumber.Text = $" - ${_currentUser.Debt.Amount}";
+            DebtDate.Text = $"{_currentUser.Debt.Date}";
+        }
+        else
+        {
+            DebtPanel.Visibility = Visibility.Hidden;
+        }
+        
+    }
+    
+    
+    
+    
     private void OpenNewAccount_Click(object sender, RoutedEventArgs e)
     {
         _currentUser.CreateAccount();
@@ -183,8 +204,11 @@ public partial class UserDetails : Page
     private void RefreshLoanButton()
     {
         ContractButton.IsEnabled = (_currentUser.Debt.Amount == 0 && IsLoanAmountValid());
-        Console.WriteLine(_currentUser.Debt.Amount);
+        
+        // tmp
+        RefreshDebtPanel();
     }
+    
     private void Loan_Button_Click(object sender, RoutedEventArgs e)
     {
         
@@ -203,4 +227,25 @@ public partial class UserDetails : Page
         
         RefreshLoanButton();
     }
+    
+
+    
+    
+    
+    
+    private void RepayButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        
+        if (!_currentUser.Debt.IsClosingAvailable(_currentAccount))
+        {
+            MessageBox.Show($"Not enough balance on {_currentAccount.Name}", "Payment rejected", MessageBoxButton.OK);
+            return;
+        }
+        
+        _currentUser.Debt.Close(_currentAccount);
+        RefreshDebtPanel();
+        RefreshLoanButton();
+    }
+    
+    
 }
