@@ -70,6 +70,12 @@ public partial class UserDetails : Page
     private void CloseAccount_Click(object sender, RoutedEventArgs e)
     {
         var account = getAccountFromButton(sender);
+
+        if (account.Balance > 0)
+        {
+            MessageBox.Show($"You have ${account.Balance} on this account. Transfer it before closing.");
+        }
+        
         account.Close();
         LoadData();
         

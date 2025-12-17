@@ -93,18 +93,7 @@
                     ✖️
                 </Button>
 
-                <Button
-                    Click="ChangeAccountName_Click"
-                    Style="{StaticResource GlowButtonYellow}"
-                    Width="20"
-                    Height="20"
-                    Background="Transparent"
-                    VerticalAlignment="Top"
-                    HorizontalAlignment="Right"
-                    Margin="0 20 0 0">
-
-                    ✒️
-                </Button>
+                
                 
 
 
@@ -121,6 +110,7 @@
                     🗑️
                 </Button>
 
+                <Grid> 
                 <TextBlock
                     x:Name="AccountName"
                     FontSize="30"
@@ -131,6 +121,21 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Top"
                     Visibility="Visible" />
+                
+                <Button
+                    Click="ChangeAccountName_Click"
+                    Style="{StaticResource GlowButtonYellow}"
+                    Width="20"
+                    Height="20"
+                    Background="Transparent"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                    Margin="10 10 50 0">
+
+                    ✒️
+                </Button>
+                
+                </Grid>
 
                 <TextBox
                     x:Name="AccountNameTextBox"
